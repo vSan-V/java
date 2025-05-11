@@ -6,6 +6,6 @@ public class Main {
 			store[i]=name.charAt(name.length()-i-1);
 		}
 		String reversed = new String(store);
-		System.out.print(store);
+		System.out.print(reversed);
 	}
 }
