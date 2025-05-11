@@ -3,7 +3,7 @@ public class Main {
 		String name="Sanjai";
     String store="";
 		for(int i = name.length()-1; i>=0; i--) {
-			store = store+charAt(i);
+			store = store+name.charAt(i);
 		}
 		System.out.print(store);
 	}
