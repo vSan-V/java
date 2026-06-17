@@ -1,31 +1,27 @@
 import java.util.*;
-class CombinationSum1 {
-    public static void main(String[] args) {
-       int[] combination ={2,3,6,7};
-       int target = 7;
-       List<List<Integer>> ans = combinationSum(combination, target);
-       System.out.println(ans);
 
-    }
-    public static List<List<Integer>> combinationSum(int[] combination, int target){
-        List<List<Integer>> ans = new ArrayList<>();
-        int index = 0;
-        fun(index,combination,target, ans, new ArrayList<Integer>());
-        return ans;
-    }
-    public static void fun(int index, int[] arr, int target,List<List<Integer>> ans, List<Integer> ds){
-        if(index == arr.length){
-            if(target==0){
-                ans.add(new ArrayList<Integer>(ds));
-            }
-            return;
-        }
-        if(arr[index]<=target){
-            ds.add(arr[index]);
-            fun(index,arr, target-arr[index], ans,ds);
-            ds.remove(ds.size()-1);
-        }
-        fun(index+1,arr, target,ans,ds);
-
-    }
+public class CombinationSum1
+{
+	public static void main(String[] args) {
+	    int[] arr = {2,3,6,7};
+	    int target = 7;
+	    int sum =0;
+	    ArrayList<List<Integer>> ans = new ArrayList<>();
+	    fun(0,sum, arr, target, new ArrayList<Integer>(), ans);
+		System.out.println(ans);
+	}
+	
+	public static void fun(int i, int sum, int[] arr, int target, ArrayList<Integer> list,  ArrayList<List<Integer>> ans){
+	    if(sum>= target || i>=arr.length){
+	        if(sum == target){
+	            ans.add(new ArrayList<>(list));
+	        }
+	        return;
+	    }
+	    list.add(arr[i]);
+	    fun(i, sum+arr[i], arr, target, list, ans);
+	    list.remove(list.size()-1);
+	    fun(i+1, sum, arr, target, list, ans);
+	    
+	}
 }
